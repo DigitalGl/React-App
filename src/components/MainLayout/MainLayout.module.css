@@ -1,0 +1,37 @@
+.mainLayout {
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    gap: 0;
+}
+
+.mainWrapper {
+    height: 100%;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: stretch;
+    gap: 20px;
+    overflow-y: auto;
+}
+
+.main {
+    padding: 0 20px;
+}
+
+.footer {
+    width: 100%;
+    padding: 15px 10px;
+    background-color: transparent;
+    text-align: center;
+    font-size: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    color: var(--text-color);
+    opacity: .7;
+}
