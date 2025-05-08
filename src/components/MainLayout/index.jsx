@@ -1,2 +1,2 @@
 /* eslint-disable prettier/prettier */
-export { Mainlayout } from './MainLayout';
+export { MainLayout } from './MainLayout';
