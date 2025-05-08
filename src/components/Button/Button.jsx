@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import {} from 'react';
 import cls from './Button.module.css';
 
