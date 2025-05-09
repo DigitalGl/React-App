@@ -1,7 +1,31 @@
 .btn {
-    background-color: burlywood;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    padding: 0.6em 1.2em;
+    font-size: 1em;
+    font-weight: 500;
+    font-family: inherit;
+    background-color: var(--btn-bg-color);
+    color: var(--btn-text-color);
+    cursor: pointer;
+    transition: border-color 0.25%;
 }
 
-.primary {
-    background-color: cadetblue;
+.btn:hover {
+    border-color: #2f2f2f;
+}
+
+.btn:focus,
+.btn:focus-visible {
+    outline: 4px auto #2f2f2f;
+}
+
+.btn:disabled {
+    opacity: .5;
+    pointer-events: none;
+}
+
+.active {
+    color: #000;
+    background-color: #ce7e1d;
 }
