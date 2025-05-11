@@ -1,0 +1,667 @@
+{
+    "react": [
+        {
+            "id": "1",
+            "question": "Что такое React",
+            "answer": "React - это библеотека для создания пользовательских интерфейсов",
+            "description": "React - это JavaScript-библеотека, разработанная Facebook, которая используется для построения UI с компонентным подходом. React позволяет вам создавать пользовательские интерфейсы из отдельных частей, называемых компонентами.",
+            "resourres": [
+                "https://react.dev",
+                "https://react.dev/reference/react"
+            ],
+            "level": 1,
+            "completed": false,
+            "editDate": "03.02.2025, 19:45"
+        },
+        {
+            "id": "2",
+            "question": "Что такое JSX?",
+            "answer": "JSX - это синтаксическое расширение для JavaScript, используемое в React.",
+            "description": "JSX позволяет писать HTML-подобный код внутри JavaScript. Он компилируется в JavaScript-вызовы React.createElement, что делает код более читаемым и удобным для создания компонентов.",
+            "resourres": [
+                "https://react.dev/learn/writing-markup-with-jsx",
+                "https://react.dev/reference/react"
+            ],
+            "level": 1,
+            "completed": false,
+            "editDate": "03.02.2025, 19:46"
+        },
+        {
+            "id": "3",
+            "question": "Что такое компонент в React?",
+            "answer": "Компонент - это независимый, переиспользуемый кусок UI.",
+            "description": "Компоненты в React - это строительные блоки пользовательского интерфейса. Они могут быть функциональными или классовыми и позволяют разбивать UI на независимые части.",
+            "resourres": [
+                "https://react.dev/learn/your-first-component",
+                "https://react.dev/reference/react/Component"
+            ],
+            "level": 1,
+            "completed": false,
+            "editDate": "03.02.2025, 19:47"
+        },
+        {
+            "id": "4",
+            "question": "В чем разница между функциональными и классовыми компонентами?",
+            "answer": "Функциональные компоненты - это функции, а классовые - это классы, унаследованные от React.Component.",
+            "description": "Функциональные компоненты проще и поддерживают хуки, тогда как классовые компоненты используют методы жизненного цикла и this. После появления хуков функциональные компоненты стали предпочтительными.",
+            "resourres": [
+                "https://react.dev/reference/react/Component",
+                "https://react.dev/learn/your-first-component"
+            ],
+            "level": 2,
+            "completed": false,
+            "editDate": "03.02.2025, 19:48"
+        },
+        {
+            "id": "5",
+            "question": "Что такое состояние (state) в React?",
+            "answer": "Состояние - это данные, которые компонент может изменять.",
+            "description": "Состояние (state) позволяет компоненту хранить данные, которые могут изменяться со временем, и перерисовывать UI при их изменении. В функциональных компонентах состояние управляется с помощью хука useState.",
+            "resourres": [
+                "https://react.dev/reference/react/useState",
+                "https://react.dev/learn/state-a-components-memory"
+            ],
+            "level": 2,
+            "completed": false,
+            "editDate": "03.02.2025, 19:49"
+        },
+        {
+            "id": "6",
+            "question": "Что такое пропсы (props) в React?",
+            "answer": "Пропсы - это параметры, передаваемые в компонент.",
+            "description": "Пропсы (props) - это механизм передачи данных от родительского компонента к дочернему. Они неизменяемы внутри компонента, что делает их поток данных однонаправленным.",
+            "resourres": [
+                "https://react.dev/learn/passing-props-to-a-component",
+                "https://react.dev/reference/react"
+            ],
+            "level": 1,
+            "completed": false,
+            "editDate": "03.02.2025, 19:50"
+        },
+        {
+            "id": "7",
+            "question": "Что такое хуки в React?",
+            "answer": "Хуки - это функции для управления состоянием и побочными эффектами.",
+            "description": "Хуки, такие как useState и useEffect, позволяют функциональным компонентам управлять состоянием и выполнять побочные эффекты без использования классов. Они были введены в React 16.8.",
+            "resourres": [
+                "https://react.dev/reference/react/hooks",
+                "https://react.dev/learn/using-the-state-hook"
+            ],
+            "level": 2,
+            "completed": false,
+            "editDate": "03.02.2025, 19:51"
+        },
+        {
+            "id": "8",
+            "question": "Для чего нужен хук useState?",
+            "answer": "useState используется для управления состоянием в функциональных компонентах.",
+            "description": "Хук useState возвращает массив с двумя элементами: текущим значением состояния и функцией для его обновления. При изменении состояния компонент перерисовывается.",
+            "resourres": [
+                "https://react.dev/reference/react/useState",
+                "https://react.dev/learn/state-a-components-memory"
+            ],
+            "level": 2,
+            "completed": false,
+            "editDate": "03.02.2025, 19:52"
+        },
+        {
+            "id": "9",
+            "question": "Для чего нужен хук useEffect?",
+            "answer": "useEffect используется для побочных эффектов, таких как запросы данных.",
+            "description": "Хук useEffect позволяет выполнять побочные эффекты (например, запросы к API, подписки) после рендеринга компонента. Он также может очищать эффекты при размонтировании.",
+            "resourres": [
+                "https://react.dev/reference/react/useEffect",
+                "https://react.dev/learn/synchronizing-with-effects"
+            ],
+            "level": 3,
+            "completed": false,
+            "editDate": "03.02.2025, 19:53"
+        },
+        {
+            "id": "10",
+            "question": "Что такое виртуальный DOM?",
+            "answer": "Виртуальный DOM - это копия реального DOM в памяти.",
+            "description": "React использует виртуальный DOM для оптимизации обновлений интерфейса. Он сравнивает виртуальный DOM с реальным и обновляет только измененные части, что ускоряет рендеринг.",
+            "resourres": [
+                "https://react.dev/learn/react-dom",
+                "https://react.dev/reference/react-dom"
+            ],
+            "level": 2,
+            "completed": false,
+            "editDate": "03.02.2025, 19:54"
+        },
+        {
+            "id": "11",
+            "question": "Что такое ReactDOM?",
+            "answer": "ReactDOM - это библиотека для работы с DOM.",
+            "description": "ReactDOM предоставляет методы для рендеринга React-компонентов в DOM, например, ReactDOM.render или createRoot в React 18.",
+            "resourres": [
+                "https://react.dev/reference/react-dom",
+                "https://react.dev/learn/rendering-lists"
+            ],
+            "level": 2,
+            "completed": false,
+            "editDate": "03.02.2025, 19:55"
+        },
+        {
+            "id": "12",
+            "question": "Что такое однонаправленный поток данных?",
+            "answer": "Данные передаются от родителя к ребенку через пропсы.",
+            "description": "В React данные передаются сверху вниз (от родительского компонента к дочернему) через пропсы, что делает поток данных предсказуемым и упрощает отладку.",
+            "resourres": [
+                "https://react.dev/learn/passing-props-to-a-component",
+                "https://react.dev/learn/sharing-state-between-components"
+            ],
+            "level": 2,
+            "completed": false,
+            "editDate": "03.02.2025, 19:56"
+        },
+        {
+            "id": "13",
+            "question": "Что такое ключи (keys) в React?",
+            "answer": "Ключи - это уникальные идентификаторы для элементов списка.",
+            "description": "Ключи помогают React эффективно обновлять списки, определяя, какие элементы изменились, добавились или удалились. Они задаются через атрибут key.",
+            "resourres": [
+                "https://react.dev/learn/rendering-lists",
+                "https://react.dev/reference/react"
+            ],
+            "level": 2,
+            "completed": false,
+            "editDate": "03.02.2025, 19:57"
+        },
+        {
+            "id": "14",
+            "question": "Для чего нужен хук useContext?",
+            "answer": "useContext используется для доступа к контексту.",
+            "description": "Хук useContext позволяет компоненту получать данные из React Context без необходимости передавать пропсы через множество уровней компонентов.",
+            "resourres": [
+                "https://react.dev/reference/react/useContext",
+                "https://react.dev/learn/passing-data-deeply-with-context"
+            ],
+            "level": 3,
+            "completed": false,
+            "editDate": "03.02.2025, 19:58"
+        },
+        {
+            "id": "15",
+            "question": "Что такое React Context?",
+            "answer": "React Context - это способ передачи данных через дерево компонентов.",
+            "description": "Context позволяет передавать данные на любой уровень вложенности без необходимости передавать пропсы через промежуточные компоненты.",
+            "resourres": [
+                "https://react.dev/learn/passing-data-deeply-with-context",
+                "https://react.dev/reference/react/createContext"
+            ],
+            "level": 3,
+            "completed": false,
+            "editDate": "03.02.2025, 19:59"
+        },
+        {
+            "id": "16",
+            "question": "Что такое хук useReducer?",
+            "answer": "useReducer - это хук для управления сложным состоянием.",
+            "description": "useReducer похож на useState, но лучше подходит для управления сложной логикой состояния с помощью редьюсера, аналогичного тому, что используется в Redux.",
+            "resourres": [
+                "https://react.dev/reference/react/useReducer",
+                "https://react.dev/learn/extracting-state-logic-into-a-reducer"
+            ],
+            "level": 3,
+            "completed": false,
+            "editDate": "03.02.2025, 20:00"
+        },
+        {
+            "id": "17",
+            "question": "Что такое рендеринг списка в React?",
+            "answer": "Рендеринг списка - это отображение массива данных в виде элементов UI.",
+            "description": "Для рендеринга списков в React используется метод map, а каждому элементу списка нужно задавать уникальный key для оптимизации обновлений.",
+            "resourres": [
+                "https://react.dev/learn/rendering-lists",
+                "https://react.dev/reference/react"
+            ],
+            "level": 2,
+            "completed": false,
+            "editDate": "03.02.2025, 20:01"
+        },
+        {
+            "id": "18",
+            "question": "Что такое условный рендеринг?",
+            "answer": "Условный рендеринг - это отображение элементов в зависимости от условий.",
+            "description": "В React можно отображать элементы условно, используя операторы if, тернарные выражения или логическое && для управления видимостью компонентов.",
+            "resourres": [
+                "https://react.dev/learn/conditional-rendering",
+                "https://react.dev/reference/react"
+            ],
+            "level": 2,
+            "completed": false,
+            "editDate": "03.02.2025, 20:02"
+        },
+        {
+            "id": "19",
+            "question": "Что такое React Router?",
+            "answer": "React Router - это библиотека для маршрутизации в React.",
+            "description": "React Router позволяет создавать одностраничные приложения с навигацией, управляя маршрутами и отображением компонентов в зависимости от URL.",
+            "resourres": [
+                "https://reactrouter.com/en/main",
+                "https://react.dev/learn/adding-a-router"
+            ],
+            "level": 3,
+            "completed": false,
+            "editDate": "03.02.2025, 20:03"
+        },
+        {
+            "id": "20",
+            "question": "Что такое React.Fragment?",
+            "answer": "React.Fragment - это компонент для группировки элементов без лишних узлов.",
+            "description": "React.Fragment позволяет группировать несколько элементов без добавления дополнительного DOM-узла, что полезно для чистоты разметки.",
+            "resourres": [
+                "https://react.dev/reference/react/Fragment",
+                "https://react.dev/learn/rendering-lists"
+            ],
+            "level": 2,
+            "completed": false,
+            "editDate": "03.02.2025, 20:04"
+        },
+        {
+            "id": "21",
+            "question": "Что такое управляемые компоненты?",
+            "answer": "Управляемые компоненты - это элементы формы, связанные с состоянием.",
+            "description": "В управляемых компонентах значения элементов формы (например, input) хранятся в состоянии React, а изменения обрабатываются через обработчики событий.",
+            "resourres": [
+                "https://react.dev/learn/sharing-state-between-components",
+                "https://react.dev/reference/react-dom/components/input"
+            ],
+            "level": 3,
+            "completed": false,
+            "editDate": "03.02.2025, 20:05"
+        },
+        {
+            "id": "22",
+            "question": "Что такое неуправляемые компоненты?",
+            "answer": "Неуправляемые компоненты - это элементы формы, не связанные с состоянием.",
+            "description": "В неуправляемых компонентах значения элементов формы хранятся в DOM, а доступ к ним осуществляется через рефы (например, с помощью useRef).",
+            "resourres": [
+                "https://react.dev/reference/react/useRef",
+                "https://react.dev/learn/manipulating-the-dom-with-refs"
+            ],
+            "level": 3,
+            "completed": false,
+            "editDate": "03.02.2025, 20:06"
+        },
+        {
+            "id": "23",
+            "question": "Для чего нужен хук useRef?",
+            "answer": "useRef используется для хранения ссылок на DOM-элементы или значения.",
+            "description": "Хук useRef создает изменяемый объект, который сохраняет свое значение между рендерами. Часто используется для доступа к DOM или хранения данных без перерисовки.",
+            "resourres": [
+                "https://react.dev/reference/react/useRef",
+                "https://react.dev/learn/manipulating-the-dom-with-refs"
+            ],
+            "level": 3,
+            "completed": false,
+            "editDate": "03.02.2025, 20:07"
+        },
+        {
+            "id": "24",
+            "question": "Что такое мемоизация в React?",
+            "answer": "Мемоизация - это оптимизация вычислений с помощью кэширования.",
+            "description": "В React мемоизация достигается с помощью хуков useMemo и useCallback, чтобы избежать ненужных вычислений или рендеров.",
+            "resourres": [
+                "https://react.dev/reference/react/useMemo",
+                "https://react.dev/reference/react/useCallback"
+            ],
+            "level": 4,
+            "completed": false,
+            "editDate": "03.02.2025, 20:08"
+        },
+        {
+            "id": "25",
+            "question": "Для чего нужен хук useMemo?",
+            "answer": "useMemo кэширует результат вычислений.",
+            "description": "Хук useMemo позволяет сохранить результат вычислений и пересчитывать его только при изменении зависимостей, что помогает оптимизировать производительность.",
+            "resourres": [
+                "https://react.dev/reference/react/useMemo",
+                "https://react.dev/learn/optimizing-performance"
+            ],
+            "level": 4,
+            "completed": false,
+            "editDate": "03.02.2025, 20:09"
+        },
+        {
+            "id": "26",
+            "question": "Для чего нужен хук useCallback?",
+            "answer": "useCallback кэширует функцию.",
+            "description": "Хук useCallback возвращает мемоизированную версию функции, которая меняется только при изменении зависимостей, что предотвращает ненужные рендеры дочерних компонентов.",
+            "resourres": [
+                "https://react.dev/reference/react/useCallback",
+                "https://react.dev/learn/optimizing-performance"
+            ],
+            "level": 4,
+            "completed": false,
+            "editDate": "03.02.2025, 20:10"
+        },
+        {
+            "id": "27",
+            "question": "Что такое React Strict Mode?",
+            "answer": "Strict Mode - это режим для выявления проблем в коде.",
+            "description": "React Strict Mode включает дополнительные проверки и предупреждения, чтобы помочь найти потенциальные проблемы в приложении, например, устаревшие API.",
+            "resourres": [
+                "https://react.dev/reference/react/StrictMode",
+                "https://react.dev/learn/keeping-components-pure"
+            ],
+            "level": 3,
+            "completed": false,
+            "editDate": "03.02.2025, 20:11"
+        },
+        {
+            "id": "28",
+            "question": "Что такое React Hooks Rules?",
+            "answer": "Правила хуков - это рекомендации по их использованию.",
+            "description": "Правила хуков требуют вызывать хуки только на верхнем уровне (не внутри циклов, условий) и только в функциональных компонентах, чтобы React корректно отслеживал их порядок.",
+            "resourres": [
+                "https://react.dev/warnings/invalid-hook-call-warning",
+                "https://react.dev/reference/react/hooks"
+            ],
+            "level": 3,
+            "completed": false,
+            "editDate": "03.02.2025, 20:12"
+        },
+        {
+            "id": "29",
+            "question": "Что такое React Portals?",
+            "answer": "Portals позволяют рендерить компоненты вне их родительского DOM.",
+            "description": "React Portals используются для рендеринга компонентов в другом месте DOM-дерева, например, для модальных окон, которые должны быть вне основного контейнера.",
+            "resourres": [
+                "https://react.dev/reference/react-dom/createPortal",
+                "https://react.dev/learn/rendering-lists"
+            ],
+            "level": 4,
+            "completed": false,
+            "editDate": "03.02.2025, 20:13"
+        },
+        {
+            "id": "30",
+            "question": "Что такое React Suspense?",
+            "answer": "Suspense - это механизм для отображения загрузки.",
+            "description": "React Suspense позволяет отображать запасной контент (например, индикатор загрузки), пока компонент загружает данные или выполняет асинхронные операции.",
+            "resourres": [
+                "https://react.dev/reference/react/Suspense",
+                "https://react.dev/learn/loading-data"
+            ],
+            "level": 4,
+            "completed": false,
+            "editDate": "03.02.2025, 20:14"
+        },
+        {
+            "id": "31",
+            "question": "Что такое lazy loading в React?",
+            "answer": "Lazy loading - это динамическая загрузка компонентов.",
+            "description": "React.lazy и Suspense позволяют загружать компоненты асинхронно, что уменьшает начальное время загрузки приложения, загружая код только при необходимости.",
+            "resourres": [
+                "https://react.dev/reference/react/lazy",
+                "https://react.dev/learn/loading-data"
+            ],
+            "level": 4,
+            "completed": false,
+            "editDate": "03.02.2025, 20:15"
+        },
+        {
+            "id": "32",
+            "question": "Что такое React Fiber?",
+            "answer": "React Fiber - это движок рендеринга React.",
+            "description": "React Fiber - это обновленный механизм рендеринга, представленный в React 16, который позволяет разбивать рендеринг на части для повышения производительности.",
+            "resourres": [
+                "https://react.dev/learn/react-developer-tools",
+                "https://react.dev/reference/react"
+            ],
+            "level": 5,
+            "completed": false,
+            "editDate": "03.02.2025, 20:16"
+        },
+        {
+            "id": "33",
+            "question": "Что такое React Developer Tools?",
+            "answer": "React Developer Tools - это расширение для отладки React.",
+            "description": "React Developer Tools - это расширение для браузера, которое позволяет инспектировать дерево компонентов, их пропсы и состояние.",
+            "resourres": [
+                "https://react.dev/learn/react-developer-tools",
+                "https://react.dev/reference/react"
+            ],
+            "level": 3,
+            "completed": false,
+            "editDate": "03.02.2025, 20:17"
+        },
+        {
+            "id": "34",
+            "question": "Что такое PropTypes?",
+            "answer": "PropTypes - это утилита для проверки типов пропсов.",
+            "description": "PropTypes позволяет задавать ожидаемые типы пропсов для компонентов и выдавать предупреждения в консоль, если типы не совпадают.",
+            "resourres": [
+                "https://react.dev/learn/passing-props-to-a-component",
+                "https://react.dev/reference/react"
+            ],
+            "level": 3,
+            "completed": false,
+            "editDate": "03.02.2025, 20:18"
+        },
+        {
+            "id": "35",
+            "question": "Что такое defaultProps?",
+            "answer": "defaultProps задают значения пропсов по умолчанию.",
+            "description": "defaultProps позволяет указать значения пропсов, которые будут использоваться, если пропсы не переданы в компонент.",
+            "resourres": [
+                "https://react.dev/learn/passing-props-to-a-component",
+                "https://react.dev/reference/react"
+            ],
+            "level": 3,
+            "completed": false,
+            "editDate": "03.02.2025, 20:19"
+        },
+        {
+            "id": "36",
+            "question": "Что такое PureComponent?",
+            "answer": "PureComponent автоматически оптимизирует рендеринг.",
+            "description": "React.PureComponent автоматически реализует shouldComponentUpdate с поверхностным сравнением пропсов и состояния для предотвращения лишних рендеров.",
+            "resourres": [
+                "https://react.dev/reference/react/PureComponent",
+                "https://react.dev/learn/optimizing-performance"
+            ],
+            "level": 4,
+            "completed": false,
+            "editDate": "03.02.2025, 20:20"
+        },
+        {
+            "id": "37",
+            "question": "Что такое shouldComponentUpdate?",
+            "answer": "shouldComponentUpdate определяет, нужно ли рендерить компонент.",
+            "description": "Это метод жизненного цикла классовых компонентов, который позволяет вручную контролировать, должен ли компонент перерисовываться при изменении пропсов или состояния.",
+            "resourres": [
+                "https://react.dev/reference/react/Component#shouldcomponentupdate",
+                "https://react.dev/learn/optimizing-performance"
+            ],
+            "level": 4,
+            "completed": false,
+            "editDate": "03.02.2025, 20:21"
+        },
+        {
+            "id": "38",
+            "question": "Что такое React.memo?",
+            "answer": "React.memo мемоизирует функциональные компоненты.",
+            "description": "React.memo предотвращает повторный рендеринг функционального компонента, если его пропсы не изменились, что улучшает производительность.",
+            "resourres": [
+                "https://react.dev/reference/react/memo",
+                "https://react.dev/learn/optimizing-performance"
+            ],
+            "level": 4,
+            "completed": false,
+            "editDate": "03.02.2025, 20:22"
+        },
+        {
+            "id": "39",
+            "question": "Что такое children в React?",
+            "answer": "children - это пропс для передачи дочерних элементов.",
+            "description": "Пропс children содержит элементы, переданные между открывающим и закрывающим тегами компонента, что позволяет создавать композицию компонентов.",
+            "resourres": [
+                "https://react.dev/learn/passing-props-to-a-component",
+                "https://react.dev/reference/react"
+            ],
+            "level": 2,
+            "completed": false,
+            "editDate": "03.02.2025, 20:23"
+        },
+        {
+            "id": "40",
+            "question": "Что такое композиция компонентов?",
+            "answer": "Композиция - это комбинирование компонентов для создания UI.",
+            "description": "Композиция в React позволяет использовать компоненты внутри других компонентов, передавая их через пропсы или children, что делает код более модульным.",
+            "resourres": [
+                "https://react.dev/learn/composition-vs-inheritance",
+                "https://react.dev/reference/react"
+            ],
+            "level": 3,
+            "completed": false,
+            "editDate": "03.02.2025, 20:24"
+        },
+        {
+            "id": "41",
+            "question": "Что такое Higher-Order Components (HOC)?",
+            "answer": "HOC - это функция, которая оборачивает компонент.",
+            "description": "Higher-Order Components принимают компонент и возвращают новый компонент с дополнительной функциональностью, что полезно для переиспользования логики.",
+            "resourres": [
+                "https://react.dev/learn/reusing-logic-with-custom-hooks",
+                "https://react.dev/reference/react"
+            ],
+            "level": 4,
+            "completed": false,
+            "editDate": "03.02.2025, 20:25"
+        },
+        {
+            "id": "42",
+            "question": "Что такое Render Props?",
+            "answer": "Render Props - это техника передачи функции через пропсы.",
+            "description": "Render Props позволяет передавать функцию через пропс, которая определяет, как рендерить часть UI, что полезно для переиспользования логики.",
+            "resourres": [
+                "https://react.dev/learn/render-props",
+                "https://react.dev/reference/react"
+            ],
+            "level": 4,
+            "completed": false,
+            "editDate": "03.02.2025, 20:26"
+        },
+        {
+            "id": "43",
+            "question": "Что такое Error Boundaries?",
+            "answer": "Error Boundaries - это компоненты для обработки ошибок.",
+            "description": "Error Boundaries позволяют перехватывать ошибки JavaScript в дочерних компонентах и отображать запасной UI вместо сбоя приложения.",
+            "resourres": [
+                "https://react.dev/reference/react/Component#catching-rendering-errors-with-an-error-boundary",
+                "https://react.dev/learn/error-boundaries"
+            ],
+            "level": 4,
+            "completed": false,
+            "editDate": "03.02.2025, 20:27"
+        },
+        {
+            "id": "44",
+            "question": "Что такое React Concurrent Mode?",
+            "answer": "Concurrent Mode - это режим для улучшения отзывчивости.",
+            "description": "Concurrent Mode (введен в React 18) позволяет React выполнять рендеринг асинхронно, делая приложение более отзывчивым за счет приоритизации задач.",
+            "resourres": [
+                "https://react.dev/reference/react",
+                "https://react.dev/learn/react-developer-tools"
+            ],
+            "level": 5,
+            "completed": false,
+            "editDate": "03.02.2025, 20:28"
+        },
+        {
+            "id": "45",
+            "question": "Что такое React Hydration?",
+            "answer": "Hydration - это процесс 'оживления' серверного HTML.",
+            "description": "Hydration используется в серверном рендеринге (SSR), когда React добавляет интерактивность к HTML, сгенерированному на сервере.",
+            "resourres": [
+                "https://react.dev/reference/react-dom/hydrateRoot",
+                "https://react.dev/learn/server-rendering"
+            ],
+            "level": 5,
+            "completed": false,
+            "editDate": "03.02.2025, 20:29"
+        },
+        {
+            "id": "46",
+            "question": "Что такое Server-Side Rendering (SSR)?",
+            "answer": "SSR - это рендеринг React-компонентов на сервере.",
+            "description": "Server-Side Rendering позволяет рендерить React-компоненты на сервере и отправлять готовый HTML клиенту, что улучшает SEO и производительность.",
+            "resourres": [
+                "https://react.dev/learn/server-rendering",
+                "https://react.dev/reference/react-dom/server"
+            ],
+            "level": 5,
+            "completed": false,
+            "editDate": "03.02.2025, 20:30"
+        },
+        {
+            "id": "47",
+            "question": "Что такое Static Site Generation (SSG)?",
+            "answer": "SSG - это генерация статических страниц на этапе сборки.",
+            "description": "Static Site Generation позволяет генерировать HTML-страницы на этапе сборки, что улучшает производительность и SEO, часто используется с Next.js.",
+            "resourres": [
+                "https://nextjs.org/docs/pages/building-your-application/rendering/static-site-generation",
+                "https://react.dev/learn/server-rendering"
+            ],
+            "level": 5,
+            "completed": false,
+            "editDate": "03.02.2025, 20:31"
+        },
+        {
+            "id": "48",
+            "question": "Что такое Next.js?",
+            "answer": "Next.js - это фреймворк на базе React.",
+            "description": "Next.js расширяет возможности React, добавляя серверный рендеринг, генерацию статических сайтов и маршрутизацию на основе файловой системы.",
+            "resourres": [
+                "https://nextjs.org/docs",
+                "https://react.dev/learn/start-a-new-react-project"
+            ],
+            "level": 4,
+            "completed": false,
+            "editDate": "03.02.2025, 20:32"
+        },
+        {
+            "id": "49",
+            "question": "Что такое React Native?",
+            "answer": "React Native - это фреймворк для разработки мобильных приложений.",
+            "description": "React Native позволяет использовать React для создания нативных мобильных приложений для iOS и Android, используя JavaScript и компоненты React.",
+            "resourres": [
+                "https://reactnative.dev/docs/getting-started",
+                "https://react.dev/learn/start-a-new-react-project"
+            ],
+            "level": 4,
+            "completed": false,
+            "editDate": "03.02.2025, 20:33"
+        },
+        {
+            "id": "50",
+            "question": "Что такое Redux?",
+            "answer": "Redux - это библиотека для управления состоянием.",
+            "description": "Redux - это библиотека для управления глобальным состоянием приложения, часто используемая с React для хранения данных и упрощения их передачи между компонентами.",
+            "resourres": [
+                "https://redux.js.org/introduction/getting-started",
+                "https://react.dev/learn/managing-state"
+            ],
+            "level": 4,
+            "completed": false,
+            "editDate": "03.02.2025, 20:34"
+        },
+        {
+            "id": "51",
+            "question": "Что такое React Testing Library?",
+            "answer": "React Testing Library - это библиотека для тестирования React-компонентов.",
+            "description": "React Testing Library предоставляет утилиты для тестирования React-компонентов, фокусируясь на тестировании поведения, а не внутренней реализации.",
+            "resourres": [
+                "https://testing-library.com/docs/react-testing-library/intro",
+                "https://react.dev/learn/testing"
+            ],
+            "level": 4,
+            "completed": false,
+            "editDate": "03.02.2025, 20:35"
+        }
+    ]
+}

@@ -7,7 +7,9 @@
     "dev": "vite --port 7788",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "server": "json-server --watch db.json -p 8801",
+    "server:help": "json-server --help"
   },
   "dependencies": {
     "react": "^18.2.0",
@@ -26,6 +28,7 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.5",
     "globals": "^13.24.0",
+    "json-server": "^1.0.0-beta.3",
     "prettier": "^3.2.5",
     "vite": "^5.1.6"
   }
