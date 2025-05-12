@@ -1,0 +1,23 @@
+.badge {
+    width: fit-content;
+    border-radius: 20px;
+    padding: 3px 10px;
+    color: var(--text-color);
+    background-color: #C5BAFF;
+    text-transform: capitalize;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.primary {
+    background-color: #2973B2;
+}
+.success {
+    background-color: #16C47F;
+}
+.warning {
+    background-color: #FF9D23;
+}
+.alert {
+    background-color: #D84040;
+}
