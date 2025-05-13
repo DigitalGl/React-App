@@ -26,6 +26,18 @@
     flex-grow: 1;
 }
 
+.paginationContainer {
+    width: fit-content;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 10px 10px 25px 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
 @media (max-width: 576px) {
     .controlsContainer {
         flex-wrap: wrap-reverse;
