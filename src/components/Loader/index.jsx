@@ -1,1 +1,1 @@
-export { Loader } from "./Loader";
+export { Loader, SmallLoader } from "./Loader";
