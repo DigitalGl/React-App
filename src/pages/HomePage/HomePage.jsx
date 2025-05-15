@@ -3,9 +3,9 @@ import { API_URL } from '../../constants';
 import { QuestionCardList } from '../../components/QuestionCardList';
 import { Loader } from '../../components/Loader';
 import { useFetch } from '../../hooks/useFetch';
-import cls from './HomePage.module.css';
 import { SearchInput } from '../../components/SearchInput';
 import { Button } from '../../components/Button';
+import cls from './HomePage.module.css';
 
 const DEFAULT_PER_PAGE = 10;
 

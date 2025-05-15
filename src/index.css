@@ -7,6 +7,7 @@
   --btn-text-color: #fff;
 
   --card-bg-color: #343a46;
+  --green-color: #219679;
 
 
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -46,6 +47,7 @@ body {
     --btn-text-color: #fff;
 
     --card-bg-color: #ebedf0;
+    --green-color: #219679;
   }
 }
 
@@ -58,5 +60,6 @@ body {
     --btn-text-color: #57C4DC;
 
     --card-bg-color: #343a46;
+    --green-color: #219679;
   }
 }
