@@ -564,6 +564,15 @@
       "resources": [],
       "level": 1,
       "completed": false
+    },
+    {
+      "id": "4a48",
+      "question": "Как дела ?",
+      "answer": "хорошо",
+      "description": "очень хорошо",
+      "resources": [],
+      "level": null,
+      "completed": false
     }
   ]
 }
