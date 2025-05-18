@@ -9,7 +9,7 @@ export const ThemeProvider = ({ children }) => {
 
     useLayoutEffect(() => {
         const detectTheme = () => {
-            const isDark = window.matchMedia("(prefers-color-sheme: dark)").matches;
+            const isDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
 
             if (isDark) {
                 setTheme("dark");
@@ -21,7 +21,7 @@ export const ThemeProvider = ({ children }) => {
         };
         detectTheme();
 
-        const mediaQuery = window.matchMedia("(prefers-color-sheme: dark)");
+        const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
         mediaQuery.addEventListener("change", detectTheme);
 
         return () => {
