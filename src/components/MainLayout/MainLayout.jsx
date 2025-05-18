@@ -20,7 +20,7 @@ export const MainLayout = () => {
         </main>
         <footer className={cls.footer}>
           React Question Card Application | {currentYear} <br />
-          by Dmitry Ko
+          by Alexander Gladkov
         </footer>
       </div>
     </div>
