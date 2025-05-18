@@ -21,9 +21,9 @@
       "resources": [
         "https://react.dev/learn/writing-markup-with-jsx"
       ],
-      "level": 2,
-      "completed": true,
-      "editDate": "03.02.2025, 20:25"
+      "level": null,
+      "completed": false,
+      "editDate": "18.05.2025, 19:23"
     },
     {
       "id": "3",
@@ -564,7 +564,18 @@
       "resources": [],
       "level": null,
       "completed": false,
-      "editDate": "18.05.2025, 14:14"
+      "editDate": "18.05.2025, 14:50"
+    },
+    {
+      "id": "69bc",
+      "question": "Некрасивый вопрос ?",
+      "answer": "знаешь",
+      "description": "чсмчсмчмчсм",
+      "resources": [
+        "смчмсчмчсмчм"
+      ],
+      "level": null,
+      "completed": false
     }
   ]
 }
