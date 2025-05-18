@@ -9,7 +9,6 @@
   --card-bg-color: #343a46;
   --green-color: #219679;
 
-
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
@@ -39,14 +38,14 @@ body {
 }
 
 .darkLayout {
-    --main-bg-color: #23272F;
-    --text-color: #fff;
+  --main-bg-color: #23272F;
+  --text-color: #fff;
 
-    --btn-bg-color: #16444f;
-    --btn-text-color: #57C4DC;
+  --btn-bg-color: #16444f;
+  --btn-text-color: #57C4DC;
 
-    --card-bg-color: #343a46;
-    --green-color: #219679;
+  --card-bg-color: #343a46;
+  --green-color: #219679;
 }
 
 @media (prefers-color-scheme: light) {
