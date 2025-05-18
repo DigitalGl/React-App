@@ -564,7 +564,18 @@
       "resources": [],
       "level": null,
       "completed": false,
-      "editDate": "18.05.2025, 14:14"
+      "editDate": "18.05.2025, 14:50"
+    },
+    {
+      "id": "69bc",
+      "question": "Некрасивый вопрос ?",
+      "answer": "знаешь",
+      "description": "чсмчсмчмчсм",
+      "resources": [
+        "смчмсчмчсмчм"
+      ],
+      "level": null,
+      "completed": false
     }
   ]
 }
