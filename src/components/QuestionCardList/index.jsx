@@ -1,1 +1,1 @@
-export { QuestionCardList } from "./QuestionCardList.jsx";
+export { QuestionCardList } from "./QuestionCardList";

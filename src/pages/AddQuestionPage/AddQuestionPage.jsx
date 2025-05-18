@@ -1,20 +1,18 @@
-import { useActionState } from 'react';
-import { Loader } from '../../components/Loader';
-import cls from './AddQuestionPage.module.css';
-import { delayFn } from '../../helpers/delayFn';
-import { toast } from 'react-toastify';
-import { API_URL } from '../../constants';
-import { QuestionForm } from '../../components/QuestionForm';
-
+import { useActionState } from "react";
+import { Loader } from "../../components/Loader";
+import cls from "./AddQuestionPage.module.css";
+import { delayFn } from "../../helpers/delayFn";
+import { toast } from "react-toastify";
+import { API_URL } from "../../constants";
+import { QuestionForm } from "../../components/QuestionForm";
 
 const createCardAction = async (_prevState, formData) => {
-   try {
+  try {
     await delayFn();
 
     const newQuestion = Object.fromEntries(formData);
     const resources = newQuestion.resources.trim();
     const isClearForm = newQuestion.clearForm;
-
 
     const response = await fetch(`${API_URL}/react`, {
       method: "POST",
@@ -29,7 +27,7 @@ const createCardAction = async (_prevState, formData) => {
       }),
     });
 
-    if (response.status === 404) {
+    if (!response.ok) {
       throw new Error(response.statusText);
     }
 
@@ -37,25 +35,23 @@ const createCardAction = async (_prevState, formData) => {
     toast.success("New question is successfully created!");
 
     return isClearForm ? {} : question;
-   } catch (error) {
+  } catch (error) {
     toast.error(error.message);
     return {};
-   }
+  }
 };
 
-  const AddQuestionPage = () => {
-  const [formState, formAction, isPending] = useActionState(createCardAction, 
-  { clearForm: true});
+const AddQuestionPage = () => {
+  const [formState, formAction, isPending] = useActionState(createCardAction, { clearForm: true });
 
   return (
     <>
-    {isPending && <Loader />}
+      {isPending && <Loader />}
 
       <h1 className={cls.formTitle}>Add new question</h1>
 
       <div className={cls.formContainer}>
-        <QuestionForm formAction={formAction} state={formState} isPending={isPending} 
-        submitBtnText="Add Question" />
+        <QuestionForm formAction={formAction} state={formState} isPending={isPending} submitBtnText="Add Question" />
       </div>
     </>
   );

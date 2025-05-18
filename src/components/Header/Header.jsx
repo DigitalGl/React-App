@@ -4,13 +4,13 @@ import { Button } from "../Button";
 import { useAuth } from "../../hooks/useAuth";
 import { AUTH_STORAGE } from "../../constants";
 import cls from "./Header.module.css";
-import { ThemeToggle } from "../../features/ThemeToggle";
+import { ThemeToggler } from "../../features/ThemeToggler";
 
 export const Header = () => {
   const navigate = useNavigate();
-  const { isAuth, setIsAuth} = useAuth();
+  const { isAuth, setIsAuth } = useAuth();
 
-  const LoginHandler = () => {
+  const loginHandler = () => {
     localStorage.setItem(AUTH_STORAGE, !isAuth);
     setIsAuth(!isAuth);
   };
@@ -22,13 +22,13 @@ export const Header = () => {
         <span>ReactCards</span>
       </p>
 
-      <div className={cls.HeaderButtons}>
-        <ThemeToggle />
+      <div className={cls.headerButtons}>
+        <ThemeToggler />
 
-        {isAuth && <Button onClick={() => navigate("/addquestion")} isActive>
-          Add
-        </Button>}
-        <Button onClick={LoginHandler} isActive={!isAuth}>{isAuth ? "Logout" : "Login"}</Button>
+        {isAuth && <Button onClick={() => navigate("/addquestion")}>Add</Button>}
+        <Button onClick={loginHandler} isActive={!isAuth}>
+          {isAuth ? "Logout" : "Login"}
+        </Button>
       </div>
     </header>
   );

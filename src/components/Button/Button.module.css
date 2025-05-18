@@ -8,7 +8,7 @@
     background-color: var(--btn-bg-color);
     color: var(--btn-text-color);
     cursor: pointer;
-    transition: border-color 0.25%;
+    transition: border-color 0.25s;
 }
 
 .btn:hover {

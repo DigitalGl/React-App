@@ -10,7 +10,7 @@
         "https://react.dev/reference/react"
       ],
       "level": 1,
-      "completed": false,
+      "completed": true,
       "editDate": "03.02.2025, 19:49"
     },
     {
@@ -21,9 +21,9 @@
       "resources": [
         "https://react.dev/learn/writing-markup-with-jsx"
       ],
-      "level": null,
+      "level": 2,
       "completed": false,
-      "editDate": "19.05.2025, 00:03"
+      "editDate": "03.02.2025, 20:25"
     },
     {
       "id": "3",
@@ -558,23 +558,11 @@
     },
     {
       "id": "e5c9",
-      "question": "Ты крут в React? 🎨",
-      "answer": "Ну еще бы !!!",
+      "question": "Ты крут в React?",
+      "answer": "🍏 канэшна 🍏",
       "description": "Потому что React мне очень нравится и я уже много с ним практикуюсь",
       "resources": [],
-      "level": null,
-      "completed": false,
-      "editDate": "18.05.2025, 14:50"
-    },
-    {
-      "id": "69bc",
-      "question": "Некрасивый вопрос ?",
-      "answer": "знаешь",
-      "description": "чсмчсмчмчсм",
-      "resources": [
-        "смчмсчмчсмчм"
-      ],
-      "level": null,
+      "level": 1,
       "completed": false
     }
   ]

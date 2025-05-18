@@ -1,34 +1,34 @@
-import { createContext, useLayoutEffect, useState } from 'react';
-import { THEME_STORAGE } from '../constants';
+import { createContext, useState, useLayoutEffect } from "react";
+import { THEME_STORAGE } from "../constants";
 
 export const ThemeContext = createContext(null);
 
 export const ThemeProvider = ({ children }) => {
-    const savedTheme = localStorage.getItem(THEME_STORAGE) || "light";
-    const [theme, setTheme] = useState(savedTheme);
+  const savedTheme = localStorage.getItem(THEME_STORAGE) || "light";
 
-    useLayoutEffect(() => {
-        const detectTheme = () => {
-            const isDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+  const [theme, setTheme] = useState(savedTheme);
 
-            if (isDark) {
-                setTheme("dark");
-                window.body.classList.remove("darkLayout");
-            } else {
-                savedTheme === "dark" && window.body.classList.add("darkLayout");
-                setTheme(savedTheme);
-            }
-        };
-        detectTheme();
+  useLayoutEffect(() => {
+    const detectTheme = () => {
+      const isDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
 
-        const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
-        mediaQuery.addEventListener("change", detectTheme);
+      if (isDark) {
+        setTheme("dark");
+        document.body.classList.remove("darkLayout");
+      } else {
+        savedTheme === "dark" && document.body.classList.add("darkLayout");
+        setTheme(savedTheme);
+      }
+    };
+    detectTheme();
 
-        return () => {
-            mediaQuery.removeEventListener("change", detectTheme);
-        };
-    }, []);
+    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+    mediaQuery.addEventListener("change", detectTheme);
 
-return <ThemeContext.Provider value={{ theme, setTheme }}> {children} </ThemeContext.Provider>
+    return () => {
+      mediaQuery.removeEventListener("change", detectTheme);
+    };
+  }, []);
+
+  return <ThemeContext.Provider value={{ theme, setTheme }}> {children} </ThemeContext.Provider>;
 };
-

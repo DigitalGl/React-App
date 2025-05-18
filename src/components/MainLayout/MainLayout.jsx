@@ -10,22 +10,22 @@ export const MainLayout = () => {
 
   return (
     <>
-    <div className={cls.mainLayout}>
-      <Header />
-      <div className={cls.mainWrapper}>
-        <main className={cls.main}>
-          <Suspense fallback={<Loader />}>
-            <Outlet />
-          </Suspense>
-        </main>
-        <footer className={cls.footer}>
-          React Question Card Application | {currentYear} <br />
-          by Alexander Gladkov
-        </footer>
+      <div className={cls.mainLayout}>
+        <Header />
+        <div className={cls.mainWrapper}>
+          <main className={cls.main}>
+            <Suspense fallback={<Loader />}>
+              <Outlet />
+            </Suspense>
+          </main>
+          <footer className={cls.footer}>
+            React Question Cards Application | {currentYear} <br />
+            by Dzmitry Ko
+          </footer>
+        </div>
       </div>
-    </div>
 
-    <ToastContainer/>
+      <ToastContainer />
     </>
   );
 };

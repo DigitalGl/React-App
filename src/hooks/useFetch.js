@@ -1,10 +1,10 @@
-import { useState } from 'react';
-import { delayFn } from '../helpers/delayFn';
-import { toast } from 'react-toastify';
+import { useState } from "react";
+import { delayFn } from "../helpers/delayFn";
+import { toast } from "react-toastify";
 
 export const useFetch = (callback) => {
   const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
 
   const fetchFn = async (arg) => {
     try {

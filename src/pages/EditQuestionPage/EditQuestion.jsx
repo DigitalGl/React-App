@@ -1,23 +1,22 @@
-import { useActionState } from 'react';
-import { Loader } from '../../components/Loader';
-import { QuestionForm } from '../../components/QuestionForm';
-import cls from './EditQuestionPage.module.css';
-import { delayFn } from '../../helpers/delayFn';
-import { dateFormat } from '../../helpers/dateFormat';
-import { API_URL } from '../../constants';
-import { toast } from 'react-toastify';
-import { useFetch } from '../../hooks/useFetch';
-import { useNavigate } from 'react-router-dom';
+import { useActionState } from "react";
+import cls from "./EditQuestionPage.module.css";
+import { Loader } from "../../components/Loader";
+import { QuestionForm } from "../../components/QuestionForm";
+import { delayFn } from "../../helpers/delayFn";
+import { dateFormat } from "../../helpers/dateFormat";
+import { API_URL } from "../../constants";
+import { toast } from "react-toastify";
+import { useFetch } from "../../hooks/useFetch";
+import { useNavigate } from "react-router-dom";
 
 const editCardAction = async (_prevState, formData) => {
-   try {
+  try {
     await delayFn();
 
     const newQuestion = Object.fromEntries(formData);
     const resources = newQuestion.resources.trim();
     const questionId = newQuestion.questionId;
     const isClearForm = newQuestion.clearForm;
-
 
     const response = await fetch(`${API_URL}/react/${questionId}`, {
       method: "PATCH",
@@ -32,56 +31,57 @@ const editCardAction = async (_prevState, formData) => {
       }),
     });
 
-    if (response.status === 404) {
+    if (!response.ok) {
       throw new Error(response.statusText);
     }
 
-    const question = await response.json();
+    const question = response.json();
     toast.success("The question is edited successfully!");
 
     return isClearForm ? {} : question;
-   } catch (error) {
+  } catch (error) {
     toast.error(error.message);
     return {};
-   }
+  }
 };
 
-export const EditQuestion = ({initialState = {}}) => {
-    const [formState, formAction, isPending] = useActionState(editCardAction, 
-    { ...initialState, clearForm: false});
+export const EditQuestion = ({ initialState = {} }) => {
+  const navigate = useNavigate();
+  const [formState, formAction, isPending] = useActionState(editCardAction, { ...initialState, clearForm: false });
 
-    const [removeQuestion, isQuestionRemoving] = useFetch(async () => {
-        const navigate = useNavigate();
-            await fetch(`${API_URL}/react/${initialState.id}`, {
-                method: "DELETE",
-            });
-    
-            toast.success("The question has been successfully removed!");
-            navigate("/");
-        });
-    
-    const onRemoveQuestionHandler = () => {
-        const isRemove = confirm("Are you sure?");
+  const [removeQuestion, isQuestionRemoving] = useFetch(async () => {
+    await fetch(`${API_URL}/react/${initialState.id}`, {
+      method: "DELETE",
+    });
 
-        isRemove && removeQuestion();
-    }
+    toast.success("The question has been successfully removed!");
+    navigate("/");
+  });
 
-    return (
-        <>
-        {isPending || isQuestionRemoving && <Loader />}
+  const onRemoveQuestionHandler = () => {
+    const isRemove = confirm("Are you sure?");
 
-            <h1 className={cls.formTitle}>Edit question</h1>
+    isRemove && removeQuestion();
+  };
 
-            <div className={cls.formContainer}>
-                <button className={cls.removeBtn} 
-                disabled={isPending || isQuestionRemoving} onClick={onRemoveQuestionHandler}>
-                    X
-                </button>
+  return (
+    <>
+      {(isPending || isQuestionRemoving) && <Loader />}
 
-            <QuestionForm formAction={formAction} state={formState} 
-            isPending={isPending || isQuestionRemoving} 
-            submitBtnText="Edit Question" />
-            </div>
-        </>
-    );
+      <h1 className={cls.formTitle}>Edit question</h1>
+
+      <div className={cls.formContainer}>
+        <button className={cls.removeBtn} disabled={isPending || isQuestionRemoving} onClick={onRemoveQuestionHandler}>
+          X
+        </button>
+
+        <QuestionForm
+          formAction={formAction}
+          state={formState}
+          isPending={isPending || isQuestionRemoving}
+          submitBtnText="Edit Question"
+        />
+      </div>
+    </>
+  );
 };
