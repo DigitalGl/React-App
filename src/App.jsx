@@ -8,6 +8,7 @@ import { EditQuestionPageLazy } from "./pages/EditQuestionPage";
 import { AuthProvider } from "./auth/AuthProvider";
 import { useAuth } from "./hooks/useAuth";
 import { ForbiddenPage } from "./pages/ForbiddenPage/ForbiddenPage";
+import { ThemeProvider } from "./theme/ThemeProvider";
 
 
 const ProtectedRoutes = () => {
@@ -20,24 +21,26 @@ const ProtectedRoutes = () => {
 
 function App() {
   return (
-    <AuthProvider>
-      <BrowserRouter>
-        <Routes>
-          <Route element={<MainLayout />}>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/forbidden" element={<ForbiddenPage />} />
-            <Route path="/question/:id" element={<QuestionPage />} />
+    <ThemeProvider>
+      <AuthProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route element={<MainLayout />}>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/forbidden" element={<ForbiddenPage />} />
+              <Route path="/question/:id" element={<QuestionPage />} />
 
-            <Route element={<ProtectedRoutes />}>
-            <Route path="/addquestion" element={<AddQuestionPageLazy />} />
-            <Route path="/editquestion/:id" element={<EditQuestionPageLazy />} />
+              <Route element={<ProtectedRoutes />}>
+              <Route path="/addquestion" element={<AddQuestionPageLazy />} />
+              <Route path="/editquestion/:id" element={<EditQuestionPageLazy />} />
+              </Route>
+
+              <Route path="*" element={<div>{<NotFoundPage />}</div>} />
             </Route>
-
-            <Route path="*" element={<div>{<NotFoundPage />}</div>} />
-          </Route>
-        </Routes>
-      </BrowserRouter>
-    </AuthProvider>
+          </Routes>
+        </BrowserRouter>
+      </AuthProvider>
+    </ThemeProvider>
   );
 }
 
