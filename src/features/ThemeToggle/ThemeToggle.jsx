@@ -6,8 +6,14 @@ export const ThemeToggle = () => {
     const { theme, setTheme } = useTheme();
 
     const onChangeHandler = (e) => {
-        const updatedTheme = e.target.checked === false ? "light" : "dark";
+        const isChecked = e.target.checked === true;
+        const updatedTheme = isChecked ? "dark" : "light";
+
         setTheme(updatedTheme);
+        isChecked 
+        ? document.body.classList.add("darkLayout") 
+        : document.body.classList.remove("darkLayout");
+
         localStorage.setItem(THEME_STORAGE, updatedTheme);
     };
 
