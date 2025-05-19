@@ -1,6 +1,6 @@
 import { useId } from "react";
 import cls from "./SearchInput.module.css";
-import { SearchIcon } from "../icons";
+import { SearchIcon } from "./icons";
 
 export const SearchInput = ({ value, onChange }) => {
   const inputId = useId();
