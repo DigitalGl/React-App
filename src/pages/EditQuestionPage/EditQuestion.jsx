@@ -1,3 +1,4 @@
+// src/pages/EditQuestionPage/EditQuestion.jsx
 import { useActionState, useContext, useEffect } from "react";
 import cls from "./EditQuestionPage.module.css";
 import { Loader } from "../../components/Loader";
@@ -31,7 +32,7 @@ const editCardAction = async (_prevState, formData, updateQuestion) => {
     updateQuestion(questionId, updatedQuestion);
     toast.success("The question is edited successfully!");
 
-    return isClearForm ? {} : updatedQuestion;
+    return { ...updatedQuestion, isSubmitted: true }; // Добавляем флаг
   } catch (error) {
     toast.error(error.message);
     return {};
@@ -43,10 +44,9 @@ export const EditQuestion = () => {
   const navigate = useNavigate();
   const { questions, updateQuestion, removeQuestion } = useContext(QuestionsContext);
 
-  // Находим карточку по id
   const card = questions.find((q) => q.id === id);
 
-  console.log("EditQuestion: id =", id, "card =", card); // Отладка
+  console.log("EditQuestion: id =", id, "card =", card);
 
   const [formState, formAction, isPending] = useActionState(
     (prevState, formData) => editCardAction(prevState, formData, updateQuestion),
@@ -55,15 +55,15 @@ export const EditQuestion = () => {
       question: card?.question || "",
       answer: card?.answer || "",
       description: card?.description || "",
-      resources: card?.resources?.join(",") || "", // Преобразуем массив в строку
+      resources: card?.resources?.join(",") || "",
       level: card?.level || 1,
       completed: card?.completed || false,
       editDate: card?.editDate || undefined,
       clearForm: false,
+      isSubmitted: false, // Добавляем флаг
     }
   );
 
-  // Перенаправление, если карточка не найдена
   useEffect(() => {
     if (!card && !isPending) {
       console.error(`Card with id ${id} not found in EditQuestion`);
@@ -71,10 +71,10 @@ export const EditQuestion = () => {
     }
   }, [card, id, navigate, isPending]);
 
-  // Перенаправление после успешного редактирования
+  // Перенаправление только после успешной отправки
   useEffect(() => {
-    if (!isPending && formState?.id && !formState.clearForm) {
-      console.log("Redirecting to / after edit"); // Отладка
+    if (!isPending && formState?.isSubmitted) {
+      console.log("Redirecting to / after successful edit");
       navigate("/");
     }
   }, [isPending, formState, navigate]);
