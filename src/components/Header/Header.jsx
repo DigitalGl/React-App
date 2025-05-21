@@ -10,6 +10,8 @@ export const Header = () => {
   const navigate = useNavigate();
   const { isAuth, setIsAuth } = useAuth();
 
+  console.log("Header: isAuth =", isAuth); // Отладка
+
   const loginHandler = () => {
     localStorage.setItem(AUTH_STORAGE, !isAuth);
     setIsAuth(!isAuth);
@@ -24,7 +26,6 @@ export const Header = () => {
 
       <div className={cls.headerButtons}>
         <ThemeToggler />
-
         {isAuth && <Button onClick={() => navigate("/addquestion")}>Add</Button>}
         <Button onClick={loginHandler} isActive={!isAuth}>
           {isAuth ? "Logout" : "Login"}

@@ -1,15 +1,14 @@
-import { useActionState } from "react";
+import { useActionState, useContext, useEffect } from "react";
 import cls from "./EditQuestionPage.module.css";
 import { Loader } from "../../components/Loader";
 import { QuestionForm } from "../../components/QuestionForm";
 import { delayFn } from "../../helpers/delayFn";
 import { dateFormat } from "../../helpers/dateFormat";
-import { API_URL } from "../../constants";
 import { toast } from "react-toastify";
-import { useFetch } from "../../hooks/useFetch";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import { QuestionsContext } from "../../context/QuestionsContext";
 
-const editCardAction = async (_prevState, formData) => {
+const editCardAction = async (_prevState, formData, updateQuestion) => {
   try {
     await delayFn();
 
@@ -18,70 +17,105 @@ const editCardAction = async (_prevState, formData) => {
     const questionId = newQuestion.questionId;
     const isClearForm = newQuestion.clearForm;
 
-    const response = await fetch(`${API_URL}/react/${questionId}`, {
-      method: "PATCH",
-      body: JSON.stringify({
-        question: newQuestion.question,
-        answer: newQuestion.answer,
-        description: newQuestion.description,
-        resources: resources.length ? resources.split(",") : [],
-        level: Number(newQuestion.level),
-        completed: false,
-        editDate: dateFormat(new Date()),
-      }),
-    });
+    const updatedQuestion = {
+      id: questionId,
+      question: newQuestion.question,
+      answer: newQuestion.answer,
+      description: newQuestion.description,
+      resources: resources.length ? resources.split(",") : [],
+      level: Number(newQuestion.level),
+      completed: false,
+      editDate: dateFormat(new Date()),
+    };
 
-    if (!response.ok) {
-      throw new Error(response.statusText);
-    }
-
-    const question = response.json();
+    updateQuestion(questionId, updatedQuestion);
     toast.success("The question is edited successfully!");
 
-    return isClearForm ? {} : question;
+    return isClearForm ? {} : updatedQuestion;
   } catch (error) {
     toast.error(error.message);
     return {};
   }
 };
 
-export const EditQuestion = ({ initialState = {} }) => {
+export const EditQuestion = () => {
+  const { id } = useParams();
   const navigate = useNavigate();
-  const [formState, formAction, isPending] = useActionState(editCardAction, { ...initialState, clearForm: false });
+  const { questions, updateQuestion, removeQuestion } = useContext(QuestionsContext);
 
-  const [removeQuestion, isQuestionRemoving] = useFetch(async () => {
-    await fetch(`${API_URL}/react/${initialState.id}`, {
-      method: "DELETE",
-    });
+  // Находим карточку по id
+  const card = questions.find((q) => q.id === id);
 
-    toast.success("The question has been successfully removed!");
-    navigate("/");
-  });
+  console.log("EditQuestion: id =", id, "card =", card); // Отладка
+
+  const [formState, formAction, isPending] = useActionState(
+    (prevState, formData) => editCardAction(prevState, formData, updateQuestion),
+    {
+      id,
+      question: card?.question || "",
+      answer: card?.answer || "",
+      description: card?.description || "",
+      resources: card?.resources?.join(",") || "", // Преобразуем массив в строку
+      level: card?.level || 1,
+      completed: card?.completed || false,
+      editDate: card?.editDate || undefined,
+      clearForm: false,
+    }
+  );
+
+  // Перенаправление, если карточка не найдена
+  useEffect(() => {
+    if (!card && !isPending) {
+      console.error(`Card with id ${id} not found in EditQuestion`);
+      navigate("/notfound");
+    }
+  }, [card, id, navigate, isPending]);
+
+  // Перенаправление после успешного редактирования
+  useEffect(() => {
+    if (!isPending && formState?.id && !formState.clearForm) {
+      console.log("Redirecting to / after edit"); // Отладка
+      navigate("/");
+    }
+  }, [isPending, formState, navigate]);
 
   const onRemoveQuestionHandler = () => {
-    const isRemove = confirm("Are you sure?");
-
-    isRemove && removeQuestion();
+    const isRemove = window.confirm("Are you sure?");
+    if (isRemove) {
+      removeQuestion(id);
+      toast.success("The question has been successfully removed!");
+      navigate("/");
+    }
   };
+
+  if (!card) {
+    return <Loader />;
+  }
 
   return (
     <>
-      {(isPending || isQuestionRemoving) && <Loader />}
+      {isPending && <Loader />}
 
       <h1 className={cls.formTitle}>Edit question</h1>
 
       <div className={cls.formContainer}>
-        <button className={cls.removeBtn} disabled={isPending || isQuestionRemoving} onClick={onRemoveQuestionHandler}>
+        <button
+          className={cls.removeBtn}
+          disabled={isPending}
+          onClick={onRemoveQuestionHandler}
+        >
           X
         </button>
 
         <QuestionForm
           formAction={formAction}
           state={formState}
-          isPending={isPending || isQuestionRemoving}
+          isPending={isPending}
           submitBtnText="Edit Question"
         />
       </div>
     </>
   );
 };
+
+export default EditQuestion;

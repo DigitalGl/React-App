@@ -1,12 +1,22 @@
-import { createContext, useState } from "react";
-import { AUTH_STORAGE } from "../../constants";
+// src/auth/AuthProvider.jsx
+import { createContext, useState, useEffect } from "react";
 
-export const AuthContext = createContext(null);
+export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-  const isLogin = JSON.parse(localStorage.getItem(AUTH_STORAGE)) || false;
+  const [isAuth, setIsAuth] = useState(() => {
+    return localStorage.getItem("reactCardLogin") === "true";
+  });
 
-  const [isAuth, setIsAuth] = useState(isLogin);
+  console.log("AuthProvider: isAuth =", isAuth); // Отладка
 
-  return <AuthContext.Provider value={{ isAuth, setIsAuth }}> {children} </AuthContext.Provider>;
+  useEffect(() => {
+    localStorage.setItem("reactCardLogin", isAuth);
+  }, [isAuth]);
+
+  return (
+    <AuthContext.Provider value={{ isAuth, setIsAuth }}>
+      {children}
+    </AuthContext.Provider>
+  );
 };

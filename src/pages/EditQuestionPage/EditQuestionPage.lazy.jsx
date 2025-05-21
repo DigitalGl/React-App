@@ -1,5 +1,5 @@
 import { lazy } from "react";
 
-const EditQuestionPageLazy = lazy(() => import("./EditQuestionPage"));
+const EditQuestionPageLazy = lazy(() => import("./EditQuestion"));
 
-export default EditQuestionPageLazy;
+export { EditQuestionPageLazy };
